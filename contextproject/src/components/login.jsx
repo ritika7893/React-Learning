@@ -1,10 +1,10 @@
 import React, { useState, useContext } from 'react';
-import { UserContext } from '../context/UserContext';
+import { UserContext } from "../context/UserContextProvider"; // ✅ named import
 
 function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const { setUser } = useContext(UserContext);
+    const { setUser } = useContext(UserContext); // ✅ using useContext correctly
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -20,7 +20,6 @@ function Login() {
                 onChange={(e) => setUsername(e.target.value)}
                 placeholder='username'
             />
-            {" "}
             <input
                 type='password'
                 value={password}
